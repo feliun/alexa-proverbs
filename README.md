@@ -20,3 +20,32 @@ A workshop to develop Alexa skills using lambdas and the serverless framework
 - fill secrets.json with your Amazon account details
 - install `sls plugin install -n serverless-alexa-skills`
 - git checkout step-2
+
+### Authenticate with Amazon
+
+Execute `sls alexa auth`.
+This command opens the login page of Amazon.com in your browser. You will be redirected to localhost:3000 after authenticating. If the authentication is successful, you'll see the message: "Thank you for using Serverless Alexa Skills Plugin!!".
+
+- **NOTE**: The security token expires in 1 hour. Therefore, if an authentication error occurs, please re-execute the command.
+
+## Creating our skill
+
+Run the following command: `sls alexa create --name $YOUR_SKILL_NAME --locale $YOUR_SKILL_LOCALE --type $YOUR_SKILL_TYPE`
+
+These are descriptions of the options:
+
+- name: Name of the skill
+- locale: Locale of the skill (en-US for English, ja-JP for Japanese and so on)
+- type: Type of the skill (custom or smartHome or video)
+
+## Updating the manifest
+
+A manifest is initially set for the skill. You can check the manifest with the following command:
+`sls alexa manifests`
+Copy [Skill ID] and [Skill Manifest] and paste it to serverless.yml.
+
+Execute the following command to update the manifest after updating your serverless.yml (or you can use the --dryRun option to check the difference between the local setting and the remote setting without updating):
+`sls alexa update`
+You can see the format of the manifest [here](https://developer.amazon.com/docs/smapi/skill-manifest.html#sample-skill-manifests);
+
+- git checkout step-3

@@ -6,6 +6,18 @@ custom:
     vendorId: ${self:custom.secrets.AMAZON_VENDOR_ID}
     clientId: ${self:custom.secrets.AMAZON_CLIENT_ID}
     clientSecret: ${self:custom.secrets.AMAZON_CLIENT_SECRET}
+    skills:
+      - id: ${self:custom.secrets.ALEXA_SKILL_ID}
+        manifest:
+          publishingInformation:
+            locales:
+              es-ES:
+                name: refranes
+          apis:
+            custom:
+              endpoint:
+                uri: arn:aws:lambda:region:account-id:function:function-name
+          manifestVersion: '1.0'
 
 provider:
   name: aws
