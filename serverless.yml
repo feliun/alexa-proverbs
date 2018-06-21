@@ -4,13 +4,13 @@ custom:
   secrets: ${file(secrets.json)}
   alexa:
     vendorId: ${self:custom.secrets.AMAZON_VENDOR_ID}
-    clientId: ${self:custom.secrets.AMAZON_VENDOR_ID}
-    clientSecret: ${self:custom.secrets.AMAZON_VENDOR_ID}
+    clientId: ${self:custom.secrets.AMAZON_CLIENT_ID}
+    clientSecret: ${self:custom.secrets.AMAZON_CLIENT_SECRET}
 
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
+  stage: ${opt:stage, 'dev'}
   region: us-east-1
 
 plugins:
