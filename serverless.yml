@@ -18,6 +18,38 @@ custom:
               endpoint:
                 uri: arn:aws:lambda:region:account-id:function:function-name
           manifestVersion: '1.0'
+        models:
+          es-ES:
+            interactionModel:
+              languageModel:
+                invocationName: "refranes populares"
+                types:
+                  - name: THEME
+                    values:
+                      - name:
+                          value: AMOR
+                      - name:
+                          value: VINO
+                      - name:
+                          value: PAN
+                      - name:
+                          value: NIÑOS
+                      - name:
+                          value: GENTE
+                      - name:
+                          value: MAR
+                      - name:
+                          value: RIOS
+                intents:
+                  - name: TellMeAProverb
+                    slots:
+                    - name: Theme
+                      type: THEME
+                    samples:
+                     - 'Dime un refran sobre {Theme}'
+                     - 'Quiero un refran sobre {Theme}'
+                     - 'Quiero un refran relacionado con {Theme}'
+                     - 'Quiero escuchar un refran'
 
 provider:
   name: aws

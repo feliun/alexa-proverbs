@@ -49,3 +49,15 @@ Execute the following command to update the manifest after updating your serverl
 You can see the format of the manifest [here](https://developer.amazon.com/docs/smapi/skill-manifest.html#sample-skill-manifests);
 
 - git checkout step-3
+
+## Building an interaction model
+
+The skill does not have an interaction model at first, so you'll need to write an interaction model definition to serverless.yml.
+
+You can see the format of the interaction model [here])(https://developer.amazon.com/docs/custom-skills/create-the-interaction-model-for-your-skill.html).
+
+Execute the following command to build the model after updating your serverless.yml (and you can also use the --dryRun option with this command): `sls alexa build`
+
+Then, you can check the model like so: `sls alexa models`
+
+git checkout step-4
