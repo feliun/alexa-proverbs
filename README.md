@@ -18,4 +18,5 @@ A workshop to develop Alexa skills using lambdas and the serverless framework
 
 - check the serverless.yml file
 - fill secrets.json with your Amazon account details
+- install `sls plugin install -n serverless-alexa-skills`
 - git checkout step-2

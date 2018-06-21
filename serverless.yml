@@ -2,22 +2,16 @@ service: alexa-spanish-proverbs
 
 custom:
   secrets: ${file(secrets.json)}
+  alexa:
+    vendorId: ${self:custom.secrets.AMAZON_VENDOR_ID}
+    clientId: ${self:custom.secrets.AMAZON_VENDOR_ID}
+    clientSecret: ${self:custom.secrets.AMAZON_VENDOR_ID}
 
 provider:
   name: aws
   runtime: nodejs8.10
   stage: dev
   region: us-east-1
-  environment:
-    AMAZON_VENDOR_ID: ${self:custom.secrets.JWT_SECRET}
-    AMAZON_CLIENT_ID: ${self:custom.secrets.DB}
-    AMAZON_CLIENT_SECRET: ${self:custom.secrets.DB}
 
 plugins:
   - serverless-alexa-skills
-
-custom:
-  alexa:
-    vendorId: ${env:AMAZON_VENDOR_ID}
-    clientId: ${env:AMAZON_CLIENT_ID}
-    clientSecret: ${env:AMAZON_CLIENT_SECRET}
