@@ -1,5 +1,5 @@
 {
-  "name": "alexa-spanish-proverbs",
+  "name": "alexa-proverbs",
   "description": "",
   "version": "0.1.0",
   "scripts": {
@@ -11,6 +11,7 @@
     "require-all": "^2.2.0"
   },
   "devDependencies": {
+    "serverless": "^1.27.3",
     "serverless-alexa-skills": "0.0.6"
   }
 }

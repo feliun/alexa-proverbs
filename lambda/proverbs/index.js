@@ -6,8 +6,8 @@ const { join } = require('path');
 
 const handlers = require('require-all')({ dirname: join(__dirname, 'handlers') });
 const requestHandlers = Object.keys(handlers)
-	.filter(handlerName => handlerName !== 2)
-	.map(handlerName => ({ [handlerName]: handlers[handlerName] }));
+	.filter(handlerName => handlerName !== 'error')
+	.map(handlerName => handlers[handlerName]);
 
 const skillBuilder = Alexa.SkillBuilders.custom();
 

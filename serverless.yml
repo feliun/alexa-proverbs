@@ -1,4 +1,4 @@
-service: alexa-spanish-proverbs
+service: alexa-proverbs
 
 custom:
   secrets: ${file(secrets.json)}
