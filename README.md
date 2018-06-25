@@ -61,3 +61,13 @@ Execute the following command to build the model after updating your serverless.
 Then, you can check the model like so: `sls alexa models`
 
 git checkout step-4
+
+## Deploying a lambda for skills to talk to
+
+Serverless will help us deploy our lambda function by doing
+
+`sls deploy`
+
+You need to link your lambda to Alexa and viceversa. If serverless.yml is not enough, try and configure this manually. This will be required just for the first time.
+
+Go to `https://developer.amazon.com/alexa/console/ask/` and ask `pregunta a refranero digital un refran relacionado con amor`. You should see a "Hello World" message at this point.

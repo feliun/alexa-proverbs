@@ -16,13 +16,13 @@ custom:
           apis:
             custom:
               endpoint:
-                uri: arn:aws:lambda:region:account-id:function:function-name
+                api: ${self:custom.secrets.LAMBDA_PROVERBS}
           manifestVersion: '1.0'
         models:
           es-ES:
             interactionModel:
               languageModel:
-                invocationName: "refranes populares"
+                invocationName: 'refranero digital'
                 types:
                   - name: THEME
                     values:
@@ -41,21 +41,31 @@ custom:
                       - name:
                           value: RIOS
                 intents:
-                  - name: TellMeAProverb
+                  - name: AMAZON.RepeatIntent
+                  - name: AMAZON.HelpIntent
+                  - name: AMAZON.StopIntent
+                  - name: AMAZON.CancelIntent
+                  - name: ProverbIntent
                     slots:
                     - name: Theme
                       type: THEME
                     samples:
-                     - 'Dime un refran sobre {Theme}'
-                     - 'Quiero un refran sobre {Theme}'
-                     - 'Quiero un refran relacionado con {Theme}'
-                     - 'Quiero escuchar un refran'
+                     - 'un refran sobre {Theme}'
+                     - 'un refran relacionado con {Theme}'
+                     - 'que te diga un refran'
 
 provider:
   name: aws
   runtime: nodejs8.10
   stage: ${opt:stage, 'dev'}
-  region: us-east-1
+  region: eu-west-1
+
+functions:
+  proverbs:
+    handler: lambda/proverbs.tellMeAProverb
+    events:
+      - alexaSkill:
+          appId: ${self:custom.secrets.ALEXA_SKILL_ID}
 
 plugins:
   - serverless-alexa-skills
