@@ -39,7 +39,7 @@ custom:
                       - name:
                           value: MAR
                       - name:
-                          value: RIOS
+                          value: TRABAJO
                 intents:
                   - name: AMAZON.RepeatIntent
                   - name: AMAZON.HelpIntent
