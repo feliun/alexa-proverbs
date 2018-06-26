@@ -30,26 +30,25 @@ module.exports = {
 		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 		const themeName = extractTheme(handlerInput.requestEnvelope.request.intent.slots);
 
-		let speakOutput = '';
-		const proverb = proverbs[themeName] && getRandomItem(proverbs[themeName]);
 		console.log(`Handling theme...${themeName}`);
-
-		if (proverb) {
+		const respond = text => {
 			const cardTitle = 'Refrán';
-			sessionAttributes.speakOutput = proverb;
+			sessionAttributes.speakOutput = text;
 			handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
 			return handlerInput.responseBuilder
 				.speak(sessionAttributes.speakOutput)
-				.withSimpleCard(cardTitle, proverb)
+				.withSimpleCard(cardTitle, text)
 				.getResponse();
-		}
+		};
 
-		speakOutput = 'Refrán no encontrado';
-		sessionAttributes.speakOutput = speakOutput; //saving speakOutput to attributes, so we can use it to repeat
-		handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
-		return handlerInput.responseBuilder
-			.speak(sessionAttributes.speakOutput)
-			.reprompt(sessionAttributes.repromptSpeech)
-			.getResponse();
+		const themeProverbs = proverbs[themeName];
+		if (themeProverbs) {
+			const proverb = getRandomItem(themeProverbs);
+			return respond(proverb);
+		}
+		const allProverbs = [].concat.apply([], Object.values(proverbs));
+		const nonFoundOutput = 'No reconozco ese tema, pero aquí tienes un refrán igualmente, ';
+		const proverb = getRandomItem(allProverbs);
+		return respond(`${nonFoundOutput}${proverb}`);
 	},
 };
