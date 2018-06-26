@@ -3,7 +3,7 @@ module.exports = {
 		return true;
 	},
 	handle(handlerInput, error) {
-		console.log(`Error handled: ${error.message}`);
+		console.log(`Error handled: ${error.message}, ${error.stack}`);
 		return handlerInput.responseBuilder
 			.speak("Sorry, I can't understand the command. Please say again.")
 			.reprompt("Sorry, I can't understand the command. Please say again.")

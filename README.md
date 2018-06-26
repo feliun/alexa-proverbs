@@ -71,3 +71,15 @@ Serverless will help us deploy our lambda function by doing
 You need to link your lambda to Alexa and viceversa. If serverless.yml is not enough, try and configure this manually. This will be required just for the first time.
 
 Go to `https://developer.amazon.com/alexa/console/ask/` and ask `pregunta a refranero digital un refran relacionado con amor`. You should see a "Hello World" message at this point.
+
+More on how to invoke your skills here: https://developer.amazon.com/es/docs/custom-skills/choose-the-invocation-name-for-a-custom-skill.html#invoking-custom-skills
+
+Very useful example to check out in here: https://github.com/alexa/skill-sample-nodejs-howto/blob/master/lambda/custom/index.js
+
+## Tidying up and adding actual content
+
+`cat ./lambda/proverbs/handlers/proverb.js`
+
+`git checkout step-6`
+
+### Getting proverbs into JSON files

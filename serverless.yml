@@ -58,7 +58,7 @@ provider:
   name: aws
   runtime: nodejs8.10
   stage: ${opt:stage, 'dev'}
-  region: eu-west-1
+  region: ${opt:region, 'eu-west-1'}
 
 functions:
   proverbs:
