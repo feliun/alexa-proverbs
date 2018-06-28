@@ -82,10 +82,12 @@ Very useful example to check out in here: https://github.com/alexa/skill-sample-
 
 `git checkout step-6`
 
-### Getting proverbs into JSON files
+## Getting proverbs into JSON files
 
 `cat ./bin/extract-spanish-proverbs.js`
 
 You can run it like `PROVERBS_SITE='XXXXXXXXXXX' node ./bin/extract-spanish-proverbs.js`
 
 `git checkout step-7`
+
+## Multilanguage support

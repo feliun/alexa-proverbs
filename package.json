@@ -3,7 +3,8 @@
 	"description": "",
 	"version": "0.1.0",
 	"scripts": {
-		"deploy": "sls alexa build && sls deploy --region eu-west-1"
+		"deploy-dev": "sls alexa build && sls deploy --region eu-west-1",
+		"deploy-live": "sls alexa build && sls deploy --region eu-west-1 --stage live"
 	},
 	"dependencies": {
 		"ask-sdk-core": "^2.0.7",
