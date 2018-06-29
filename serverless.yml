@@ -40,6 +40,8 @@ custom:
                           value: MAR
                       - name:
                           value: TRABAJO
+                      - name:
+                          value: LOCURA
                 intents:
                   - name: AMAZON.RepeatIntent
                   - name: AMAZON.HelpIntent

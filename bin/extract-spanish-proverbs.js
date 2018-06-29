@@ -40,6 +40,7 @@ const run = async () => {
 		gente: 'gente/gente.html',
 		mar: 'gente/marinero.html',
 		trabajo: 'trabajo/trabajo.htm',
+		locura: 'gente/locos.html',
 	};
 
 	const themes = Object.keys(proverbPageByTheme);
