@@ -11,7 +11,7 @@ const extractProverbs = text =>
 		.map(proverb => proverb.trimStart())
 		.filter(proverb => proverb);
 
-const processProverbs = async (theme, suffix) => {
+const processProverbs = async suffix => {
 	browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
 	page = await browser.newPage();
 	page.setViewport({ width: 1280, height: 926 });
@@ -49,7 +49,7 @@ const run = async () => {
 
 	for (let i = 0; i < themes.length; i++) {
 		const theme = themes[i];
-		const proverbs = await processProverbs(theme, proverbPageByTheme[theme]);
+		const proverbs = await processProverbs(proverbPageByTheme[theme]);
 		console.log(`Writing ${proverbs.length} for theme ${theme}`);
 		writeFileSync(join(spanishProverbsPath, `${theme}.json`), JSON.stringify(proverbs), 'utf8');
 	}
