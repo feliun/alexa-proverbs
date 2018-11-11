@@ -2,6 +2,8 @@
 
 A workshop to develop Alexa skills using lambdas and the serverless framework
 
+[Recommended reading](https://medium.com/@navdeepsingh_2336/alexa-skills-foundation-part-2-8398d9d79917).
+
 ## Get your Amazon credentials
 
 - Login with Amazon is an OAuth2.0 single sign-on (SSO) system using your Amazon.com account.
